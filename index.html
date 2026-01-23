@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jeremias Kanniainen – Portfolio</title>
+  <meta name="description" content="Jeremias Miko Hermanni Kanniainen – opiskelija ja teknologia-osaaja. Portfolio: työkokemus, koulutus, projektit ja yhteystiedot.">
+  <meta property="og:title" content="Jeremias Kanniainen – Portfolio">
+  <meta property="og:description" content="Opiskelija, kiinnostus ohjelmointiin, robotiikkaan ja suunnitteluun.">
+  <meta property="og:type" content="website">
+  <meta name="color-scheme" content="light dark" />
+  data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧊</text></svg>
+
+  <style>
+    :root{
+      --bg: #0b0d10;
+      --card: #12161b;
+      --text: #e8eef5;
+      --muted: #b4c0ce;
+      --accent: #6ac6ff;   /* sinertävä korostus */
+      --accent-2:#85ffa7;  /* vihertävä korostus */
+      --border: #1c2430;
+      --shadow: 0 6px 24px rgba(0,0,0,0.25);
+      --radius: 14px;
+      --maxw: 980px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f8fafc;
+        --card:#ffffff;
+        --text:#0c1116;
+        --muted:#4d5b6a;
+        --accent:#0066cc;
+        --accent-2:#0ca678;
+        --border:#e6eaf0;
+        --shadow: 0 8px 24px rgba(20,30,40,0.08);
+      }
+    }
+    [data-theme="light"]{
+      --bg:#f8fafc; --card:#ffffff; --text:#0c1116; --muted:#4d5b6a;
+      --accent:#0066cc; --accent-2:#0ca678; --border:#e6eaf0;
+      --shadow: 0 8px 24px rgba(20,30,40,0.08);
+    }
+    [data-theme="dark"]{
+      --bg:#0b0d10; --card:#12161b; --text:#e8eef5; --muted:#b4c0ce;
+      --accent:#6ac6ff; --accent-2:#85ffa7; --border:#1c2430;
+      --shadow: 0 6px 24px rgba(0,0,0,0.25);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans',sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto;border-radius:10px}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: saturate(140%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 75%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      max-width:var(--maxw);margin:auto;display:flex;align-items:center;gap:16px;
+      padding:12px 16px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .nav ul{margin-left:auto;display:flex;gap:14px;list-style:none;padding:0}
+    .nav a.navlink{padding:8px 10px;border-radius:10px}
+    .nav a.navlink:hover{background:color-mix(in oklab,var(--accent) 18%, transparent)}
+
+    .theme-toggle{
+      border:1px solid var(--border);background:var(--card);color:var(--text);
+      padding:8px 12px;border-radius:10px;cursor:pointer;box-shadow:var(--shadow);
+    }
+
+    main{max-width:var(--maxw);margin:24px auto;padding:0 16px 60px}
+
+    .hero{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);
+      margin-top:18px;
+    }
+    .hero h1{margin:0 0 6px 0;font-size:clamp(28px,4vw,40px)}
+    .hero p.lead{margin:6px 0 12px 0;color:var(--muted)}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{font-size:14px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:color-mix(in oklab, var(--card) 85%, var(--accent) 5%)}
+
+    section{margin-top:34px}
+    .card{
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);
+    }
+    h2.section-title{margin:0 0 14px 0;font-size:clamp(20px,3vw,28px)}
+    .grid{display:grid;gap:16px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:860px){ .hero{grid-template-columns:1fr} .grid.cols-2, .grid.cols-3{grid-template-columns:1fr} }
+
+    .item{border:1px dashed var(--border);border-radius:12px;padding:14px;background:color-mix(in oklab,var(--card) 85%, transparent)}
+    .item h3{margin:0 0 6px 0;font-size:18px}
+    .item .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .tag{font-size:12.5px;padding:5px 8px;border-radius:8px;background:color-mix(in oklab,var(--accent) 18%, transparent);color:var(--text);border:1px solid var(--border)}
+
+    .projects .thumb{aspect-ratio:16/9;background:linear-gradient(135deg, color-mix(in oklab,var(--accent) 30%, transparent), color-mix(in oklab,var(--accent-2) 30%, transparent));border-radius:10px;margin:6px 0}
+
+    .footer{
+      margin-top:30px;padding:16px;color:var(--muted);text-align:center;
+    }
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#001014;border:none;padding:10px 14px;border-radius:12px;font-weight:600;box-shadow:var(--shadow);cursor:pointer
+    }
+    .btn:focus{outline:2px solid color-mix(in oklab,var(--accent) 30%, white)}
+    .links-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .links-row a{border:1px solid var(--border);padding:8px 10px;border-radius:10px;background:var(--card)}
+
+    /* ankkurien offset sticky-headerille */
+    .anchor{scroll-margin-top:84px}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Päävalikko">
+      <div class="brand" aria-label="Etusivu">
+        <div class="dot" aria-hidden="true"></div>
+        <span>Jeremias Kanniainen</span>
+      </div>
+      <ul>
+        <li>#tietojaTietoja</a></li>
+        <li>#tyokokemusTyökokemus</a></li>
+        <li>#koulutusKoulutus</a></li>
+        <li>#projektitProjektit</a></li>
+        <li>#yhteysYhteys</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeBtn" aria-label="Vaihda teema">🌗 Teema</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sankari / Intro -->
+    <section class="hero" id="etusivu">
+      <div>
+        <h1>Hei! Olen Jeremias – opiskelija & teknologia-osaaja</h1>
+        <p class="lead">
+          Kiinnostukseni on ohjelmoinnissa, robotiikassa ja luovassa suunnittelussa. Rakennan selkeitä ratkaisuja, dokumentoin hyvin ja tykkään hioa yksityiskohtia.
+        </p>
+        <div class="chips" aria-label="Osaamiset">
+          <span class="chip">Python</span>
+          <span class="chip">HTML & CSS</span>
+          <span class="chip">Excel & Word</span>
+          <span class="chip">Illustrator & InDesign</span>
+          <span class="chip">Versiohallinta (Git)</span>
+        </div>
+        <div class="links-row" style="margin-top:14px">
+          #projektitKatso projektit →</a>
+          #yhteysOta yhteyttä</a>
+          <!-- Lisää omat linkit esim. GitHub/LinkedIn -->
+          <!-- https://github.com/omaGitHub</a> -->
+        </div>
+      </div>
+      <div>
+        <!-- Voit korvata oman kuvasi tiedostolla profile.jpg -->
+        https://images.unsplash.com/photo-1520975922131-c3c5a3d7c6a4?q=80&w=1200&auto=format&fit=crop
+      </div>
+    </section>
+
+    <!-- Tietoja minusta -->
+    <section id="tietoja" class="anchor">
+      <div class="card">
+        <h2 class="section-title">Tietoja minusta</h2>
+        <p>
+          Olen <strong>Jeremias Miko Hermanni Kanniainen</strong>, IT-alan opiskelija Oulusta. 
+          Pidän ongelmanratkaisusta, opettelen uusia työkaluja nopeasti ja dokumentoin työn huolellisesti. 
+          Viime aikoina olen harjoitellut erityisesti Pythonia, käyttöliittymien rakentamista sekä portfolion ja presentaatioiden suunnittelua.
+        </p>
+        <div class="tags" aria-label="Kiinnostuksen kohteet">
+          <span class="tag">Robotiikka</span>
+          <span class="tag">Ohjelmistokehitys</span>
+          <span class="tag">UI/UX-perusteet</span>
+          <span class="tag">Data & taulukot</span>
+          <span class="tag">Tekninen kirjoittaminen</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Työkokemus -->
+    <section id="tyokokemus" class="anchor">
+      <div class="card">
+        <h2 class="section-title">Työkokemus</h2>
+        <div class="grid cols-2">
+          <article class="item" aria-labelledby="tyo1-title">
+            <h3 id="tyo1-title">Harjoittelu / IT-tuki (esimerkki)</h3>
+            <div class="meta">2025 – 2026 · Oulu · Osa-aikainen</div>
+            <p>Asiakastuki, perusvika-analyysi, koneiden käyttöönotto, Office-työkaluiden opastus. Dokumentoin ohjeet ja ratkaisupolut.</p>
+            <div class="tags">
+              <span class="tag">Windows/Linux</span><span class="tag">Office</span><span class="tag">Asiakaspalvelu</span>
+            </div>
+          </article>
+
+          <article class="item" aria-labelledby="tyo2-title">
+            <h3 id="tyo2-title">Projektityö: dokumentointi & esitykset</h3>
+            <div class="meta">2025 · Kouluprojekti</div>
+            <p>Laadin selkeitä ohjeita (Word), laskelmia (Excel) ja visuaalisia aineistoja (InDesign/Illustrator) esityksiä varten.</p>
+            <div class="tags">
+              <span class="tag">Word</span><span class="tag">Excel</span><span class="tag">InDesign</span><span class="tag">Illustrator</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Koulutus -->
+    <section id="koulutus" class="anchor">
+      <div class="card">
+        <h2 class="section-title">Koulutus</h2>
+        <div class="grid cols-2">
+          <article class="item" aria-labelledby="koulu1-title">
+            <h3 id="koulu1-title">IT-alan opinnot (opiskelija)</h3>
+            <div class="meta">2024 – →</div>
+            <p>Ohjelmointi (Python-perusteet, ehdot & silmukat, merkkijonot), tietotekniikan perusteet, toimisto-ohjelmat, verkkoperusteet.</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Git</span><span class="tag">HTML/CSS</span>
+            </div>
+          </article>
+
+          <article class="item" aria-labelledby="koulu2-title">
+            <h3 id="koulu2-title">Kurssit & sertifikaatit (esimerkki)</h3>
+            <div class="meta">2025</div>
+            <p>Digiergonomia ja tietoturvan perusteet, dokumentoinnin parhaat käytännöt, perus UI/UX -periaatteet.</p>
+            <div class="tags">
+              <span class="tag">Tietoturva</span><span class="tag">Dokumentointi</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projektit -->
+    <section id="projektit" class="anchor">
+      <div class="card projects">
+        <h2 class="section-title">Projektit</h2>
+        <div class="grid cols-2">
+          <article class="item" aria-labelledby="proj1-title">
+            <h3 id="proj1-title">Nord‑4 kylmiin olosuhteisiin</h3>
+            <div class="meta">2025 · Kouluprojekti · ~90 kg robotti</div>
+            <div class="thumb" aria-hidden="true"></div>
+            <p>Nord‑4 on suunniteltu toimimaan insinöörien ja tiedemiesten apuna äärimmäisessä kylmyydessä. Tein kuvaukset, ominaisuuslistat, sloganit ja esitysmateriaalit.</p>
+            <div class="tags">
+              <span class="tag">Robotiikka</span><span class="tag">Dokumentointi</span><span class="tag">Esitykset</span>
+            </div>
+          </article>
+
+          <article class="item" aria-labelledby="proj2-title">
+            <h3 id="proj2-title">Portfolio & työhakumateriaali</h3>
+            <div class="meta">2026</div>
+            <div class="thumb" aria-hidden="true"></div>
+            <p>Loin tämän sivuston sekä CV:n ja projektikoosteet. Tavoitteena selkeys, saavutettavuus ja hyvä mobiilikokemus.</p>
+            <div class="tags">
+              <span class="tag">HTML/CSS</span><span class="tag">A11y</span><span class="tag">Responsiivisuus</span>
+            </div>
+          </article>
+        </div>
+        <div class="links-row">
+          <!-- Lisää linkkejä repoihin/demoihin -->
+          <!-- https://github.com/kayttaja/nord-4Nord‑4 repo</a> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Yhteys -->
+    <section id="yhteys" class="anchor">
+      <div class="card">
+        <h2 class="section-title">Yhteys</h2>
+        <p>Otathan yhteyttä, jos haluat jutella projekteista tai harjoittelumahdollisuuksista.</p>
+        <div class="grid cols-2">
+          <div class="item">
+            <h3>Sähköposti</h3>
+            <p>mailto:etunimi.sukunimi@example.cometunimi.sukunimi@example.com</a></p>
+          </div>
+          <div class="item">
+            <h3>Muut linkit</h3>
+            <div class="links-row">
+              #LinkedIn</a>
+              #GitHub</a>
+              #Lataa CV (PDF)</a>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:14px">
+          <button class="btn" onclick="window.location='#tietoja'">Tutustu minuun</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">© <span id="year"></span> Jeremias Kanniainen — Portfolio</div>
+  </main>
+
+  <script>
+    // Vuosi footeriin
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Teemavaihdin (muistaa valinnan localStorageen)
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+    themeBtn.addEventListener('click', ()=>{
+      const cur = root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Sulava vieritys
+    if('scrollBehavior' in document.documentElement.style){
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
+  </script>
+</body>
+</html>
